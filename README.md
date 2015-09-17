@@ -1,2 +1,2 @@
-# grubstub
+# grubscore
 Grub Score HD app
