@@ -201,23 +201,21 @@ hatch{
     -webkit-animation-name: rollIn; 
     animation-name: rollIn; 
   
-    -webkit-animation-duration: .7s; 
-    animation-duration: .7s; 
+    -webkit-animation-duration: 1.7s; 
+    animation-duration: 1.7s; 
   
-    -webkit-animation-fill-mode: both; 
-    animation-fill-mode: both; 
+    -webkit-animation-fill-mode: none; 
+    animation-fill-mode: none; 
   
     -webkit-animation-timing-function: ease-in-out; 
     animation-timing-function: ease-in-out;
   
 }
 
-/*
 .bullseye {
   fill: olive;
   transition: fill .4s ease;
   
 }
-*/
 
 
