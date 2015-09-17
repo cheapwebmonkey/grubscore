@@ -123,6 +123,112 @@
 	}		
 }
 
+@keyframes bounce {
+	0% {
+		transform: translateY(0%) scaleY(0.6);
+	}
+	60%{
+		transform: translateY(-100%) scaleY(1.1);
+	}
+	70%{
+		transform: translateY(0%) scaleY(0.95) scaleX(1.05);
+	}
+	80%{
+		transform: translateY(0%) scaleY(1.05) scaleX(1);
+	}	
+	90%{
+		transform: translateY(0%) scaleY(0.95) scaleX(1);
+	}				
+	100%{
+		transform: translateY(0%) scaleY(1) scaleX(1);
+	}	
+}
+
+@-webkit-keyframes bounce {
+	0% {
+		-webkit-transform: translateY(0%) scaleY(0.6);
+	}
+	60%{
+		-webkit-transform: translateY(-100%) scaleY(1.1);
+	}
+	70%{
+		-webkit-transform: translateY(0%) scaleY(0.95) scaleX(1.05);
+	}
+	80%{
+		-webkit-transform: translateY(0%) scaleY(1.05) scaleX(1);
+	}	
+	90%{
+		-webkit-transform: translateY(0%) scaleY(0.95) scaleX(1);
+	}				
+	100%{
+		-webkit-transform: translateY(0%) scaleY(1) scaleX(1);
+	}		
+}
+
+@keyframes bigEntrance {
+	0% {
+		transform: scale(0.3) rotate(6deg) translateX(-30%) translateY(30%);
+		opacity: 0.2;
+	}
+	30% {
+		transform: scale(1.03) rotate(-2deg) translateX(2%) translateY(-2%);		
+		opacity: 1;
+	}
+	45% {
+		transform: scale(0.98) rotate(1deg) translateX(0%) translateY(0%);
+		opacity: 1;
+	}
+	60% {
+		transform: scale(1.01) rotate(-1deg) translateX(0%) translateY(0%);		
+		opacity: 1;
+	}	
+	75% {
+		transform: scale(0.99) rotate(1deg) translateX(0%) translateY(0%);
+		opacity: 1;
+	}
+	90% {
+		transform: scale(1.01) rotate(0deg) translateX(0%) translateY(0%);		
+		opacity: 1;
+	}	
+	100% {
+		transform: scale(1) rotate(0deg) translateX(0%) translateY(0%);
+		opacity: 1;
+	}		
+}
+
+@-webkit-keyframes bigEntrance {
+	0% {
+		-webkit-transform: scale(0.3) rotate(6deg) translateX(-30%) translateY(30%);
+		opacity: 0.2;
+	}
+	30% {
+		-webkit-transform: scale(1.03) rotate(-2deg) translateX(2%) translateY(-2%);		
+		opacity: 1;
+	}
+	45% {
+		-webkit-transform: scale(0.98) rotate(1deg) translateX(0%) translateY(0%);
+		opacity: 1;
+	}
+	60% {
+		-webkit-transform: scale(1.01) rotate(-1deg) translateX(0%) translateY(0%);		
+		opacity: 1;
+	}	
+	75% {
+		-webkit-transform: scale(0.99) rotate(1deg) translateX(0%) translateY(0%);
+		opacity: 1;
+	}
+	90% {
+		-webkit-transform: scale(1.01) rotate(0deg) translateX(0%) translateY(0%);		
+		opacity: 1;
+	}	
+	100% {
+		-webkit-transform: scale(1) rotate(0deg) translateX(0%) translateY(0%);
+		opacity: 1;
+	}				
+}
+
+
+
 /*
  Colors 
 @-webkit-keyframes color_change {
@@ -165,12 +271,25 @@
   SVG Styles
 --------------------------- */
 
-hatch{
+.target{
 	animation-name: hatch;
 	-webkit-animation-name: hatch;	
 
-	animation-duration: 2s;	
-	-webkit-animation-duration: 2s;
+	animation-duration: 1.2s;	
+	-webkit-animation-duration: 1.2s;
+
+	animation-timing-function: ease-out;	
+	-webkit-animation-timing-function: ease-out;	
+
+	visibility: visible !important;			
+}
+
+/*
+.target {
+    animation: hatch 2s ease-out backwards;
+    -webkit-animation: hatch 2s ease-out backwards;
+    animation-duration: 3s;	
+	-webkit-animation-duration: 3s;
 
 	animation-timing-function: ease-in-out;	
 	-webkit-animation-timing-function: ease-in-out;
@@ -181,11 +300,8 @@ hatch{
 
 	visibility: visible !important;		
 }
+*/
 
-.target {
-    animation: hatch 1s ease-out backwards;
-    -webkit-animation: hatch 1s ease-out backwards;
-}
 
 .inner {
     animation-delay: .1s;
@@ -198,24 +314,20 @@ hatch{
 }
 
 .bullseye { 
-    -webkit-animation-name: rollIn; 
-    animation-name: rollIn; 
+    -webkit-animation: bounce; 
+    animation: bounce; 
   
-    -webkit-animation-duration: 1.7s; 
-    animation-duration: 1.7s; 
-  
-    -webkit-animation-fill-mode: none; 
-    animation-fill-mode: none; 
-  
-    -webkit-animation-timing-function: ease-in-out; 
-    animation-timing-function: ease-in-out;
+    animation-duration: 1.6s;	
+	-webkit-animation-duration: 1.6s;
+
+	animation-timing-function: ease;	
+	-webkit-animation-timing-function: ease;	
+	
+	transform-origin: 50% 100%;
+	-ms-transform-origin: 50% 100%;
+	-webkit-transform-origin: 50% 100%;
   
 }
 
-.bullseye {
-  fill: olive;
-  transition: fill .4s ease;
-  
-}
 
 
