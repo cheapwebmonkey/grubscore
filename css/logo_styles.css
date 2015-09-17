@@ -4,8 +4,7 @@
 
 /*olive target*/
 
-@keyframes grow
-@-webkit-keyframes grow{
+@keyframes grow {
   0% {
     transform: scale(0);
   }
@@ -17,9 +16,20 @@
   }
 }
 
+@-webkit-keyframes grow {
+  0% {
+    -webkit-transform: scale(0);
+  }
+  30% {
+    -webkit-transform: scale(1.1);
+  }
+  60% {
+    -webkit-transform: scale(0.9);
+  }
+}
 
-@keyframes turn
-@-webkit-keyframes turn{
+
+@keyframes turn {
   0% {
     transform: rotate(0) scale(0);
     opacity: 0;
@@ -35,13 +45,36 @@
   }
 }
 
-@keyframes pulse
-@-webkit-keyframes pulse{
+@-webkit-keyframes turn {
+  0% {
+   -webkit-transform: rotate(0) scale(0);
+   opacity: 0;
+  }
+  60% {
+    -webkit-transform: rotate(375deg) scale(1.1);
+  }
+  80% {
+    -webkit-transform: rotate(355deg) scale(0.9);
+  }
+  100% {
+    -webkit-transform: rotate(360deg) scale(1);
+  }
+}
+
+/*
+@keyframes pulse {
   10% {
     transform: scale(1.2);
   }
 }
 
+@-webkit-keyframes pulse {
+  10% {
+    transform: scale(1.2);
+  }
+}
+*/
+  
 @keyframes hatch {
 	0% {
 		transform: rotate(0deg) scaleY(0.6);
@@ -90,7 +123,8 @@
 	}		
 }
 
-/* Colors */
+/*
+ Colors 
 @-webkit-keyframes color_change {
 	from { background-color: olive; }
 	to { background-color: #C1272D; }
@@ -111,15 +145,18 @@
 	from { background-color: olive; }
 	to { background-color: #C1272D; }
 }
+*/
 
-@-webkit-keyframes rollIn { 
-    0% { opacity: 0; -webkit-transform: translateX(-100%) rotate(-120deg); } 
-    100% { opacity: 1; -webkit-transform: translateX(0px) rotate(0deg); } 
-} 
 @keyframes rollIn { 
     0% { opacity: 0; transform: translateX(-100%) rotate(-120deg); } 
     100% { opacity: 1; transform: translateX(0px) rotate(0deg); } 
 } 
+
+@-webkit-keyframes rollIn { 
+    0% { opacity: 0; transform: translateX(-100%) rotate(-120deg); } 
+    100% { opacity: 1; transform: translateX(0px) rotate(0deg); } 
+} 
+
 
 
 
@@ -163,10 +200,13 @@ hatch{
 .bullseye { 
     -webkit-animation-name: rollIn; 
     animation-name: rollIn; 
+  
     -webkit-animation-duration: .7s; 
     animation-duration: .7s; 
-    -webkit-animation-fill-mode: fill; 
-    animation-fill-mode: backwards; 
+  
+    -webkit-animation-fill-mode: none; 
+    animation-fill-mode: none; 
+  
     -webkit-animation-timing-function: ease-in-out; 
     animation-timing-function: ease-in-out;
   
