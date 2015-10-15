@@ -1,7 +1,10 @@
 class Business < ActiveRecord::Base
   require 'csv'
+  self.primary_key = 'business_id'
   has_many :lou_inspections
   has_many :lou_violations
+  validates_uniqueness_of :business_id
+  
   
   geocoded_by :full_address
   after_validation :geocode

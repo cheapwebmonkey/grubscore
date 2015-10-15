@@ -1,12 +1,50 @@
 require 'csv'
-
-namespace :db do
-  task :import_csv => :environment do
-    CSV.foreach("businesses.csv", :headers => true) do |row|
-      Business.create!(row.to_hash)
+desc "Imports a CSV file into an ActiveRecord table"
+task :business_import, [:filename] => :environment do    
+  CSV.foreach('businesses.csv', :headers => true) do |row|
+    Business.create!(row.to_hash)
     end
-  end
 end
+
+
+
+#require 'csv'
+#
+#desc 'Import buinesses csv'
+#
+#namespace :business do
+#  task :import, [:filename] => :environment do
+#    CSV.foreach("businesses.csv", :headers => true) do |row|
+#      Business.create!(row.to_hash)
+#    end
+#  end
+#end
+
+#desc 'Import buinesses csv'
+#
+#namespace :business do
+#  task :import, [:filename] => :environment do
+#    CSV.foreach("businesses.csv", :headers => true) do |row|
+#      Business.create!(row.to_hash)
+#    end
+#  end
+#end
+
+#namespace :db do
+#  desc 'Import businesses'
+#  task :import_csv => :environment do
+#    
+#    require 'csv'
+#    
+#    csv_file_path = '/businesses.csv'
+#      task :import_csv => :environment do
+#        CSV.foreach("businesses.csv", :headers => true) do |row|
+#          Business.create!(row.to_hash)
+#      rake -T
+#        end
+#    end
+#  end
+#end
 
 
 
