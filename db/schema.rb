@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151008215712) do
+ActiveRecord::Schema.define(version: 20151018143754) do
 
   create_table "businesses", force: :cascade do |t|
     t.integer  "business_id",  limit: 4
@@ -23,8 +23,10 @@ ActiveRecord::Schema.define(version: 20151008215712) do
     t.float    "latitude",     limit: 24
     t.float    "longitude",    limit: 24
     t.string   "phone_number", limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.text     "description",  limit: 65535
+    t.integer  "score",        limit: 4
   end
 
   create_table "locations", force: :cascade do |t|
@@ -40,6 +42,8 @@ ActiveRecord::Schema.define(version: 20151008215712) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
+
+  add_index "lou_inspections", ["business_id"], name: "index_lou_inspections_on_business_id", using: :btree
 
   create_table "lou_violations", force: :cascade do |t|
     t.integer  "business_id", limit: 4

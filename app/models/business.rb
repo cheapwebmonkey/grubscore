@@ -4,6 +4,11 @@ class Business < ActiveRecord::Base
   has_many :lou_inspections
   has_many :lou_violations
   validates_uniqueness_of :business_id
+  scope :business_id, -> {where("business_id >= ?", 1)}
+  scope :newest, -> {order("created_at DESC")}
+
+  #defining a new function :starts_with which will pass in a (letter) which it uses to perform a search
+  scope :starts_with, ->(letter) { where("name LIKE ?", letter + "%")}
   
   
   geocoded_by :full_address
@@ -12,6 +17,11 @@ class Business < ActiveRecord::Base
   def full_address
     "#{address}, #{postal_code}, #{city}, #{state}"
   end
+
+  # def update_rating!
+  #   update_attributes(
+  #     score: )
+  # end
   
 end
   
