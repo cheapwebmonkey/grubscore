@@ -9,8 +9,8 @@ class CreateBusinesses < ActiveRecord::Migration
       t.string :phone_number
       t.timestamps null: false
       
-      reverse_geocoded_by :latitude, :longitude
-      after_validation :reverse_geocode
+      # reverse_geocoded_by :latitude, :longitude
+      # after_validation :reverse_geocode 
     end
   end
 end

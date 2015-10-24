@@ -1,5 +1,6 @@
 class Business < ActiveRecord::Base
   require 'csv'
+  has_paper_trail
   self.primary_key = 'business_id'
   has_many :lou_inspections
   has_many :lou_violations

@@ -29,6 +29,16 @@ gem 'geocoder'
 gem 'smarter_csv'
 
 gem 'rails_12factor', group: :production
+
+gem 'state_machine'
+
+gem 'paper_trail'
+
+gem 'bcrypt'
+
+#Devise gem https://github.com/plataformatec/devise
+gem 'devise'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -39,9 +49,15 @@ gem 'rails_12factor', group: :production
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'rspec-rails', '~> 2.0'
 end
+
+group :test do
+  gem 'capybara', '~> 2.1.0'
+  gem 'minitest'
+  gem 'shoulda-matchers', '~> 2.4.0'
+end
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
