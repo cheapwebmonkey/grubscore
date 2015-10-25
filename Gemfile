@@ -39,6 +39,8 @@ gem 'bcrypt'
 #Devise gem https://github.com/plataformatec/devise
 gem 'devise'
 
+# gem 'minitest'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -48,14 +50,20 @@ gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# gem 'will_paginate'
+
+gem 'kaminari'
+
 group :development, :test do
-  gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'capybara', '~> 2.2.0'
+
 end
 
 group :test do
-  gem 'capybara', '~> 2.1.0'
-  gem 'minitest'
-  gem 'shoulda-matchers', '~> 2.4.0'
+  # gem 'minitest'
+  # gem 'shoulda-matchers', '~> 2.4.0'
+
 end
 
 

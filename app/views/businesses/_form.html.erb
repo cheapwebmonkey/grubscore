@@ -1,15 +1,71 @@
-<%= form_for(@business) do |f| %>
-  <% if @business.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@business.errors.count, "error") %> prohibited this business from being saved:</h2>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>GrubScore-Up your food game.</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-      <ul>
-      <% @business.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    </head>
+    <body>
+      <!--Navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <div>  
+          <%= image_tag 'main-logo.png' %>
+          <a class="brand main-logo pull-left" href="#" >GrubScore</a>
+          <p class="navbar-text pull-right hidden-xs">Level Up Your Food Game</p>
+        </div>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="#">Inspections</a></li>
+            <li><a href="#">Violations</a></li>
+          </ul>
+       </div>
+     </div>
+    </nav>
+ <!-- Jumbotron -->
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+
+            <h1>New business</h1>
+
+            <div class="col-sm-8"><%= form_for(@business) do |f| %>
+            <% if @business.errors.any? %>
+            <div id="error_explanation">
+               <h2><%= pluralize(@business.errors.count, "error") %> prohibited this business from being saved:</h2>
+
+                 <ul>
+              <% @business.errors.full_messages.each do |msg| %>
+             <li><%= msg %></li>
+           <% end %>
+        </ul>
+
+        </div>
+     </div>
+    <% end %>
     </div>
-  <% end %>
+    </div>
+    
 
   <div class="field">
     <%= f.label :name %><br>
@@ -22,4 +78,14 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  </div>
+</div>
 <% end %>
+
+
+
+     <!-- End Main Content -->
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+          <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    </body>
+  </html>

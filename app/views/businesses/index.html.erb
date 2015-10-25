@@ -45,24 +45,27 @@
     <div class="jumbotron">
       <div class="container">
         <div class="row">
-          <div class="col-sm-8">
+          <div class="col-sm-12">
 
             <h1>GrubScore</h1>
-              <ul class="list-inline">
-                <li><h2>Title</h2></li>
-                  <li><h2>Description</h2></li>
-                  </ul>
-                  <ul class="list-inline">
-                  <% @businesses.each do |business| %>
-                  <li><%= business.name %>
-                      <%= business.address %></li>
-                      <li><%= link_to 'Show', business %>
-                      <%= link_to 'Edit', edit_business_path(business) %>
-                      <%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } %>
-                  </li>
+              <button type ="button" class="button-warning"> <%= link_to 'Add new business', new_business_path %></h3>
+                  </button>
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                    <div class="panel-heading"><h2>Louisville Restaurants</h2></div>
+                    <table class="table">
+                    <tr><% @businesses.each do |business| %></tr>
+                    <td><%= business.name %></td>
+                    <td><%= business.address %></td>
+                    <td><%= business.score %></td>
+                    <td><%= link_to 'Show', business %>
+                    <%= link_to 'Edit', edit_business_path(business) %>
+                    <%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </td>
                 
                 <% end %>
-              </ul>
+              </table>
+              </div>
 
           </div>
         </div>
@@ -75,8 +78,7 @@
             
              
           </div>
-            <h3><%= link_to 'Add new business', businesses_path %></h3>
-          </div>
+
         </div>
      </div>
                  

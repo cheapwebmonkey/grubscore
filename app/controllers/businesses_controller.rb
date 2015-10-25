@@ -4,12 +4,22 @@ class BusinessesController < ApplicationController
   # GET /businesses.json
   def index
     @businesses = Business.all
+    # @businesses = Business.paginate(page: params[:page], per_page: 50)
+    #  	respond_to do |format|
+    #   	format.html  #index.html.erb
+    #   	format.json { render json: @businesses }
+    # end 
   end
+
+
   # GET /businesses/1
   # GET /businesses/1.json
   def show
     @businesses = Business.find(params[:business_id])
+    @businesses = Business.order(:name).page params[:page]
   end
+
+
   # GET /businesses/new
   def new
     @business = Business.new
