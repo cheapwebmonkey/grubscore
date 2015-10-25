@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
    def index
-    @products = Product.all
+    @business = Business.all
   end
 
   def import
-    Product.import(params[:file])
+    Business.import(params[:file])
     redirect_to root_url, notice: "Products imported."
   end
 end
