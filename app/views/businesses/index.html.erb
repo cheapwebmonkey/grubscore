@@ -34,7 +34,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.html">Home</a></li>
+            <li class="active"><a href="businesses.html">Home</a></li>
             <li><a href="#">Inspections</a></li>
             <li><a href="#">Violations</a></li>
           </ul>
@@ -48,7 +48,7 @@
           <div class="col-sm-12">
 
             <h1>GrubScore</h1>
-              <button type ="button" class="button-warning"> <%= link_to 'Add new business', new_business_path %></h3>
+              <button type ="button" class="button-warning"> <%= link_to 'Add New Business', new_business_path %></h3>
                   </button>
                   <div class="panel panel-default">
                     <div class="panel-body">
@@ -58,9 +58,9 @@
                     <td><%= business.name %></td>
                     <td><%= business.address %></td>
                     <td><%= business.score %></td>
-                    <td><%= link_to 'Show', business %>
-                    <%= link_to 'Edit', edit_business_path(business) %>
-                    <%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <td><%= link_to 'Details', business %>
+                    <%= link_to 'Inspections' %>
+                    <%= link_to 'Violations' %>
                   </td>
                 
                 <% end %>
@@ -75,6 +75,7 @@
         <div class="row">
           <div class="col-sm-6">
           <div>
+          <%= link_to 'New Business', new_business_path %>
             
              
           </div>

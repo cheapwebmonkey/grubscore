@@ -4,8 +4,12 @@ class Business < ActiveRecord::Base
   self.primary_key = 'business_id'
   has_many :lou_inspections
   has_many :lou_violations
+  
   validates_uniqueness_of :business_id
-  scope :business_id, -> {where("business_id >= ?", 1)}
+  validates :name, presence: true
+  validates :address, length: { minimum: 3 }
+
+  scope :id, -> {where("id >= ?", 1)}
   scope :newest, -> {order("created_at DESC, paginates_per(25)")}
   # paginates_per 25
   # max_paginates_per 50
@@ -24,10 +28,9 @@ class Business < ActiveRecord::Base
 
 
 
-  # def update_rating!
-  #   update_attributes(
-  #     score: )
-  # end
+  def update_rating!
+    update_attributes :score
+  end
   
 end
   

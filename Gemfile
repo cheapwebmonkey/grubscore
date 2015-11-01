@@ -61,8 +61,8 @@ group :development, :test do
 end
 
 group :test do
-  # gem 'minitest'
-  # gem 'shoulda-matchers', '~> 2.4.0'
+  gem 'minitest'
+  gem 'shoulda-matchers', '~> 2.4.0'
 
 end
 

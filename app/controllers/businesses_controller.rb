@@ -1,36 +1,28 @@
 class BusinessesController < ApplicationController
-  before_action :set_business, only: [:show, :edit, :update, :destroy]
-   # GET /businesses
+  before_action :set_businesses, only: [:show, :edit, :update, :destroy]
+
+  # GET /businesses
   # GET /businesses.json
   def index
     @businesses = Business.all
-    # @businesses = Business.paginate(page: params[:page], per_page: 50)
-    #  	respond_to do |format|
-    #   	format.html  #index.html.erb
-    #   	format.json { render json: @businesses }
-    # end 
   end
-
 
   # GET /businesses/1
   # GET /businesses/1.json
   def show
-    @businesses = Business.find(params[:business_id])
-    @businesses = Business.order(:name).page params[:page]
   end
-
 
   # GET /businesses/new
   def new
     @business = Business.new
   end
 
-  # GET /business/1/edit
+  # GET /businesses/1/edit
   def edit
   end
 
-    # POST /businesses
-  # POST /business.json
+  # POST /businesses
+  # POST /businesses.json
   def create
     @business = Business.new(business_params)
 
@@ -43,12 +35,13 @@ class BusinessesController < ApplicationController
         format.json { render json: @business.errors, status: :unprocessable_entity }
       end
     end
+  end
 
-    # PATCH/PUT /businesses/1
+  # PATCH/PUT /businesses/1
   # PATCH/PUT /businesses/1.json
   def update
     respond_to do |format|
-      if @business.update(todo_list_params)
+      if @business.update(business_params)
         format.html { redirect_to @business, notice: 'Business was successfully updated.' }
         format.json { head :no_content }
       else
@@ -78,8 +71,4 @@ class BusinessesController < ApplicationController
     def business_params
       params.require(:business).permit(:name, :address)
     end
-
-	end
 end
-
-
