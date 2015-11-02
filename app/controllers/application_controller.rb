@@ -11,5 +11,9 @@ class ApplicationController < ActionController::Base
     Business.import(params[:file])
     redirect_to root_url, notice: "Products imported."
   end
+
+   def index
+    @lou_inspection = LouInspection.all
+  end
 end
 
