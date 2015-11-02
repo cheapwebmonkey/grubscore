@@ -3,6 +3,7 @@ before_action :set_lou_inspections, only: [:show]
   
   def index
     @lou_inspections = LouInspection.all
+
   end
   
   def show
@@ -16,4 +17,6 @@ before_action :set_lou_inspections, only: [:show]
   def new
     @lou_inspection = LouInspection.new
   end
+
+
 end

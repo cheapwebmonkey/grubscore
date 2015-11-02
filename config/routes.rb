@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   resources :lou_inspections
 
+  resources :lou_violations
+
+
   
   resources :businesses do
     resources :lou_inspections do

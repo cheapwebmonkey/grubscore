@@ -52,7 +52,7 @@ gem 'devise'
 
 # gem 'will_paginate'
 
-gem 'kaminari'
+# gem 'kaminari'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

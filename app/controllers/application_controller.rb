@@ -7,13 +7,17 @@ class ApplicationController < ActionController::Base
     @business = Business.all
   end
 
-  def import
-    Business.import(params[:file])
-    redirect_to root_url, notice: "Products imported."
-  end
+  # def import
+  #   Business.import(params[:file])
+  #   redirect_to root_url, notice: "Products imported."
+  # end
 
    def index
     @lou_inspection = LouInspection.all
+  end
+
+  def index
+    @lou_violation = LouViolation.all
   end
 end
 

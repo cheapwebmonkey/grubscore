@@ -5,10 +5,10 @@
                     <div class="panel-body">
                     <div class="panel-heading"><h2>Louisville Restaurants</h2></div>
                     <table class="table">
-                    <tr><% @lou_inspections.each do |lou_inspection| %></tr>
-                    <td><%= lou_inspection.business_id %></td>
-                    <td><%= lou_inspection.score %></td>
-                    <td><%= lou_inspection.visit %></td>
+                    <tr><% @lou_violations.each do |lou_violation| %></tr>
+                    <td><%= lou_violation.business_id %></td>
+                    <td><%= lou_violation.date %></td>
+                    <td><%= lou_violation.description %></td>
                     <td><%= link_to 'Details' %>
                     
                   </td>
