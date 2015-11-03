@@ -1,4 +1,5 @@
 class BusinessesController < ApplicationController
+  before_action :require_user
   before_action :set_businesses, only: [:show, :edit, :update, :destroy]
 
   # GET /businesses

@@ -30,11 +30,18 @@ describe BusinessesController do
   # BusinesssController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  before do
+    controller.stub(:current_user).and_return(User.new)
+  end
+
   describe "GET index" do
+    context "logged in" do
     it "assigns all businesses as @businesses" do
       business = Business.create! valid_attributes
+      controller.stub(:require_user).and_return(true)
       get :index, {}, valid_session
       assigns(:businesses).should eq([business])
+    end
     end
   end
 

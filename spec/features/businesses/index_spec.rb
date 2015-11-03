@@ -1,7 +1,11 @@
 require 'rails_helper'
 
 describe "Viewing businesses" do
+  it "requires login" do
+    visit "/businesses"
+    expect(page).to have_content("You must be logged in")
   let!(:business) { Business.create(name: "Name", address: "Address") }
+end
 
   def visit_business(business)
     visit "/businesses"

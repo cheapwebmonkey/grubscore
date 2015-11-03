@@ -18,10 +18,10 @@ describe UserSessionsController do
     context "with correct credentials" do
       let!(:user) { User.create(first_name: "Darth", last_name: "vader", email: "vader@deathstar.com", password: "deathstar1234", password_confirmation: "deathstar1234") }
 
-      it "redirects to the todo list path" do
-        post :create, email: "vader@deathstar.com", password: "treehouse1"
+      it "redirects to the businesses path" do
+        post :create, email: "vader@deathstar.com", password: "deathstar1234"
         expect(response).to be_redirect
-        expect(response).to redirect_to(todo_lists_path)
+        expect(response).to redirect_to(businesses_path)
       end
 
       it "finds the user" do
@@ -65,7 +65,7 @@ describe UserSessionsController do
     end
 
     context "with an incorrect password" do
-      let!(:user) { User.create(first_name: "Jason", last_name: "Seifer", email: "vader@deathstar.com", password: "deathstar1234", password_confirmation: "deathstar1234") }
+      let!(:user) { User.create(first_name: "Darth", last_name: "Vader", email: "vader@deathstar.com", password: "deathstar1234", password_confirmation: "deathstar1234") }
       let(:email) { user.email }
       let(:password) { "incorrect" }
       it_behaves_like "denied login"
