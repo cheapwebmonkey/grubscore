@@ -9,16 +9,25 @@ Rails.application.routes.draw do
 
   resources :lou_violations
 
+ resources :users do
+    # resources :lou_inspections do
+    #   member do
+    #     patch :complete
+    #   end
+    # end
+  end
+  #this sets the app root path to the /users/new sign up page
+  root 'users#new'
 
   
-  resources :businesses do
-    resources :lou_inspections do
-      member do
-        patch :complete
-      end
-    end
-  end
-  root 'businesses#index'
+  # resources :businesses do
+  #   resources :lou_inspections do
+  #     member do
+  #       patch :complete
+  #     end
+  #   end
+  # end
+  # root 'businesses#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
