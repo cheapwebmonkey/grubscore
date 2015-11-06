@@ -3,19 +3,16 @@ before_action :set_lou_inspections, only: [:show]
   
   def index
     @lou_inspections = LouInspection.all
-
+    if params[:search]
+      @lou_inspections = LouInspection.search(params[:search]).order("created_at DESC")
+    else
+      @lou_inspections = LouInspection.all.order('created_at DESC')
+    end
   end
-  
+
+  # GET /louinspections/1
+  # GET /louinspections/1.json
   def show
-    @lou_inspections = LouInspections.find(params[:business_id])
-  end
-
-   def show
-  end
-
-  # GET /businesses/new
-  def new
-    @lou_inspection = LouInspection.new
   end
 
 

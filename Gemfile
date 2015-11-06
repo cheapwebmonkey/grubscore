@@ -40,6 +40,8 @@ gem 'bcrypt'
 #Devise gem https://github.com/plataformatec/devise
 gem 'devise'
 
+#gritter flash messages
+gem "gritter", "1.2.0"
 # gem 'minitest'
 
 # Use ActiveModel has_secure_password
