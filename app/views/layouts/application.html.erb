@@ -8,14 +8,7 @@
 </head>
 <body>
 
-  <div class="nav">
-    <h1><%= link_to "GrubScore", root_path %></h1>
-    <ul>
-      <li><%= link_to "Businesses", businesses_path %></li>
-      <li><%= link_to "Sign Up", new_user_path %></li>
-    </ul>
-    <br class="clear" />
-  </div>
+  
 
   <% flash.each do |type, message| %>
   <div class="alert flash <%= type %>">
@@ -25,6 +18,14 @@
 
 <div class="content">
   <%= yield %>
+  <div class="">
+    <!-- <h1><%= link_to "GrubScore", root_path %></h1> -->
+    <ul>
+      <li><%= link_to "Businesses", businesses_path %></li>
+      <li><%= link_to "Sign Up", new_user_path %></li>
+    </ul>
+    <br class="clear" />
+  </div>
 </div>
 
 </body>
