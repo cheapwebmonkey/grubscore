@@ -36,6 +36,7 @@ gem 'paper_trail'
 
 gem 'bcrypt'
 
+
 #Devise gem https://github.com/plataformatec/devise
 gem 'devise'
 
@@ -57,6 +58,7 @@ gem 'devise'
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara', '~> 2.2.0'
+  gem 'factory_girl_rails', '~> 4.0'
 
 end
 

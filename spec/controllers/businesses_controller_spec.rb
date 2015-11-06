@@ -31,19 +31,20 @@ describe BusinessesController do
   let(:valid_session) { {} }
 
   before do
-    controller.stub(:current_user).and_return(User.new)
+    sign_in(build_stubbed(:user))
   end
 
   describe "GET index" do
-    context "logged in" do
-    it "assigns all businesses as @businesses" do
-      business = Business.create! valid_attributes
-      controller.stub(:require_user).and_return(true)
-      get :index, {}, valid_session
-      assigns(:businesses).should eq([business])
-    end
+    context "logged in" do  
+      it "assigns all businesses as @businesses" do
+        business = Business.create! valid_attributes
+        get :index, {}, valid_session
+        assigns(:businesses).should eq([business])
+      end
     end
   end
+
+    
 
   describe "GET show" do
     it "assigns the requested business as @business" do

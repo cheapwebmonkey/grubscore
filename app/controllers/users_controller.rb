@@ -2,9 +2,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users/new
-  def new
-    @user = User.new
+ 
+  def index
+    @users = User.all
   end
+
 
   # GET /users/1/edit
   def edit
@@ -41,7 +43,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
+ # DELETE /users/1
   # DELETE /users/1.json
   def destroy
     @user.destroy

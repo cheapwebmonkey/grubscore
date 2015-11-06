@@ -76,6 +76,10 @@
           <div class="col-sm-6">
           <div>
           <%= link_to 'New Business', new_business_path %>
+          <%= form_tag(businesses_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Businesses" %>
+  <%= submit_tag "Search" %>
+<% end %>
             
              
           </div>

@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 describe "Deleting businesses" do
-  let!(:business) { Business.create(name: "Name", address: "Address") }
+	let(:user) { create(:user) }
+	let!(:business) { Business.create(name: "Name", address: "Address") }
 
   it "is successful when clicking the destroy link" do
     visit "/businesses"

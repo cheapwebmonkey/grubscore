@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 describe "Editing businesses" do
+  let(:user) { create(:user) }
   let!(:business) { Business.create(name: "Name", address: "Address") }
+
 
   def update_business(options={})
     options[:name] ||= "My Business"
@@ -39,7 +41,7 @@ describe "Editing businesses" do
   end
 
   it "displays an error with too short a name" do
-    update_business business: business, name: "hi"
+    update_business business: business, name: "h"
     expect(page).to have_content("error")
   end
 
