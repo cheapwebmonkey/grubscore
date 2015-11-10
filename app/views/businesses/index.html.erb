@@ -50,10 +50,12 @@
             <h1>GrubScore</h1>
               <button type ="button" class="button-warning"> <%= link_to 'Add New Business', new_business_path %></h3>
                   </button>
+
                   <div class="panel panel-default">
                     <div class="panel-body">
                     <div class="panel-heading"><h2>Louisville Restaurants</h2></div>
                     <table class="table">
+
                     <tr><% @businesses.each do |business| %></tr>
                     <td><%= business.name %></td>
                     <td><%= business.address %></td>
@@ -62,10 +64,10 @@
                     <%= link_to 'Inspections' %>
                     <%= link_to 'Violations' %>
                   </td>
-                
                 <% end %>
               </table>
-              </div>
+
+          </div>
 
           </div>
         </div>
@@ -79,9 +81,10 @@
           <%= form_tag(businesses_path, :method => "get", id: "search-form") do %>
   <%= text_field_tag :search, params[:search], placeholder: "Search Businesses" %>
   <%= submit_tag "Search" %>
+
 <% end %>
-            
-             
+         
+          <%= paginate @businesses %>   
           </div>
 
         </div>
@@ -89,6 +92,7 @@
                  
             
          <!-- End Main Content -->
+                
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
           <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     </body>

@@ -2,15 +2,32 @@ class BusinessesController < ApplicationController
   before_action :require_user
   before_action :set_businesses, only: [:show, :edit, :update, :destroy]
 
+
   # GET /businesses
+
   # GET /businesses.json
   def index
-    @businesses = Business.all
+    @businesses = Business.page(params[:page])
+    # @businesses = Business.all
+    # @businesses = Business.order(:name).index params[:page]
+
+    # # Kaminari.configure do |config|
+    # # config.page_method_name = :per_page_kaminari
+    # # end
+
+    # #@businesses = Business.order(:name).page params[:page]
+
+    # if params[:search]
+    #   @businesses = Business.search(params[:search]).order("created_at DESC")
+    # else
+    #   @businesses = Business.all.order('created_at DESC')
+    # end
   end
 
   # GET /businesses/1
   # GET /businesses/1.json
   def show
+    #@businesses = Business.order(:name).page params[:page]
   end
 
   # GET /businesses/new
@@ -60,6 +77,10 @@ class BusinessesController < ApplicationController
       format.html { redirect_to businesses_url }
       format.json { head :no_content }
     end
+  end
+
+    def inspections
+    @lou_inpsections = LouInspeciton.all
   end
 
   private

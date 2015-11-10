@@ -25,6 +25,10 @@ Rails.application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
+
+  #ActiveAdmin for action mailer
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
   config.assets.debug = true
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,

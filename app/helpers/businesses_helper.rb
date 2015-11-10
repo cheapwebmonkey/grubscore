@@ -1,4 +1,4 @@
 module BusinessesHelper 
-# <%= paginate @users %>
-
+	# <%= paginate @businesses %>
+	# end
 end

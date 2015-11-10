@@ -42,6 +42,10 @@ gem 'devise'
 
 #gritter flash messages
 gem "gritter", "1.2.0"
+
+
+gem 'kaminari'
+
 # gem 'minitest'
 
 # Use ActiveModel has_secure_password
@@ -53,9 +57,9 @@ gem "gritter", "1.2.0"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# gem 'will_paginate'
 
-# gem 'kaminari'
+
+
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

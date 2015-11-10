@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Business Name:</strong>
+  <%= @business.name %>
+</p>
+
+<p>
+  <strong>Business Id:</strong>
+  <%= @lou_inspection.business_id %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @lou_inspection.score %>
+</p>
+
+<p>
+<!--   <strong>Password digest:</strong>
+  <%= @user.password_digest %>
+</p> -->
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
