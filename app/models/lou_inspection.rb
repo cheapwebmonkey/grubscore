@@ -7,3 +7,8 @@ class LouInspection < ActiveRecord::Base
   scope :ascore, -> {where("score >= ?", 85)}
   scope :cscore, -> {where("score <= ?", 85)}
 end
+
+	def index
+	  LouInspection.all.paginates_per 50
+
+	end
