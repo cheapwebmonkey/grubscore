@@ -5,5 +5,11 @@ class LouViolation < ActiveRecord::Base
   scope :violation, -> {where("business_id >= ?", 1)}
   scope :newest, -> {order("created_at DESC")}
   
-  
+
+
+end
+
+def index
+	  LouViolation.all.paginates_per 50
+
 end

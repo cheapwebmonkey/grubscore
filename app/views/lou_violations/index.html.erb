@@ -46,8 +46,6 @@
         <div class="row">
         <hr>
           <h1>GrubScore</h1>
-<!--               <button type ="button" class="button-warning"> <%= link_to #'Sign Up', new_user_path %></h3>
- -->                  <!-- </button> -->
               <div class="panel panel-default">
                 <div class="panel-body">
                   <div class="panel-heading"><h2>Louisville Restaurants</h2></div>
@@ -60,6 +58,7 @@
                   </td> 
                 <% end %>
                 </table>
+                <%= paginate @lou_violations %> 
               </div>
             </div>
            </div>
