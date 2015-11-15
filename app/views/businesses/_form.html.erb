@@ -50,7 +50,7 @@
             <h1>New business</h1>
 
             <div class="col-sm-8">
-            <%= form_for(Business.new) do |f| %>
+            <%= form_for(@business) do |f| %>
             <% if @business.errors.any? %>
             <div id="error_explanation">
                <h2><%= pluralize(@business.errors.count, "error") %> prohibited this business from being saved:</h2>
@@ -67,7 +67,10 @@
     </div>
     </div>
     
-
+   <div class="field"> 
+   <%= f.label :business_id %><br>
+   <%= f.number_field(:business_id, in: 1...999999999) %>  
+  </div>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -77,17 +80,24 @@
     <%= f.text_field :address %>
   </div>
   <div class="field">
-    <%= f.label :business_id %><br>
-    <%= f.number_field :business_id %>
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :postal_code %><br>
+    <%= f.text_field(:postal_code) %>
   </div>
   <div class="actions">
-  <button type ="button" class="button-warning"> <%= link_to f.submit, new_business_path %></h3>
-                  </button>
-    
+    <%= f.submit "Add Business" %>
   </div>
-  </div>
-</div>
+
 <% end %>
+  
+
 
 
 

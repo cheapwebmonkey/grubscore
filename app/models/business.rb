@@ -8,6 +8,9 @@ class Business < ActiveRecord::Base
   # validates_uniqueness_of :business_id
   validates :name, presence: true
   validates :address, length: { minimum: 3 }
+  validates :city, presence: true
+  validates :state, presence: true
+  validates :postal_code, presence: true
 
   default_scope ->{ order('created_at') }
 

@@ -1,14 +1,23 @@
 Rails.application.routes.draw do
-  
+
   get "/login" => "user_sessions#new", as: :login
   delete "/logout" => "user_sessions#destroy", as: :logout
   
   resources :users
   resources :user_sessions, only: [:new, :create]
-
+  resources :password_resets, only: [:new, :create, :edit, :update]
   resources :lou_inspections
 
-  resources :lou_violations
+  # resources :lou_violations
+
+  # resources :businesses do
+  #   resources :lou_inspections, lou_violations do
+  #     member do
+  #       patch :complete
+  #     end
+  #   end
+  # end
+  # root 'businesses#index'
 
  resources :users do
     # resources :lou_inspections do
@@ -44,7 +53,8 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  resources :businesses
+  resources :businesses, only: [:new, :create, :edit, :distroy]
+
   
   resources :businesses do
   collection { post :import }
