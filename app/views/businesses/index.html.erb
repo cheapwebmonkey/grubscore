@@ -58,11 +58,11 @@
 
                     <tr><% @businesses.each do |business| %></tr>
                     <td><%= business.name %></td>
+                    <td><%= business.business_id %></td>
                     <td><%= business.address %></td>
-                    <td><%= business.score %></td>
-                    <td><%= link_to 'Details', business %>
-                    <%= link_to 'Inspections' %>
-                    <%= link_to 'Violations' %>
+                    <td><%= link_to 'Add Business', new_business_path %>
+                    <%= link_to 'Inspections', lou_inspections_path %>
+                    <%= link_to 'Violations', lou_violations_path %>
                   </td>
                 <% end %>
               </table>
@@ -82,7 +82,13 @@
   <%= text_field_tag :search, params[:search], placeholder: "Search Businesses" %>
   <%= submit_tag "Search" %>
 
-<% end %>
+  <% end %>
+        <% @businesses.each do |business| %>
+          <div class="business">
+            <h3 class="business-name"><%= link_to business.name %></h1>
+            <p class="business-id"><%= business.business_id %></p>
+        </div>
+        <% end %>
          
           <%= paginate @businesses %>   
           </div>

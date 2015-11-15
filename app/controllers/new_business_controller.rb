@@ -1,16 +1,16 @@
 class NewBusinessController < ApplicationController
   def index
-    @new_business = Business.find(params[:business_id])
+    @new_business = Business.find(params[:id])
   end
 
   def new
-    @business = Business.find(params[:business_id])
+    @business = Business.find(params[:id])
     @new_business = @businesses.new_business.new
   end
 
   def create
-    @business = Business.find(params[:business_id])
-    @new_business = @businesses.new_business.new(new_business_params)
+    @business = Business.find(params[:id])
+    @new_business = @businesses.new_business.new(new_params)
     if @new_business.save
       flash[:success] = "Added new business."
       redirect_businesses_new_business_path

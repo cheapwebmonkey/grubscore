@@ -16,6 +16,12 @@
 </p>
 
 <p>
+<% if @lou_inspection.lou_violation.any? %>
+<h3> Total - (<%= @lou_inspection.lou_violation %>) </h3>
+<%= render @lou_violation %> 
+<br>
+<% end %>
+</p>
 <!--   <strong>Password digest:</strong>
   <%= @user.password_digest %>
 </p> -->

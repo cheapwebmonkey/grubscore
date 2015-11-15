@@ -15,6 +15,11 @@ before_action :set_lou_inspections, only: [:show]
   # GET /louinspections/1
   # GET /louinspections/1.json
   def show
+    
+    @lou_inspections = LouInspection.find(params[:business_id])
+    @lou_violation = @lou_inspection.lou_violation
+    @business = @lou_inspection.business
+  
   end
 
 

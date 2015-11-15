@@ -5,7 +5,7 @@ class Business < ActiveRecord::Base
   belongs_to :lou_inspections
   belongs_to :lou_violations
   
-  validates_uniqueness_of :business_id
+  # validates_uniqueness_of :business_id
   validates :name, presence: true
   validates :address, length: { minimum: 3 }
 
