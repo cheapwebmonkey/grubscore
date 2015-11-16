@@ -56,16 +56,23 @@
                     <div class="panel-heading"><h2>Louisville Restaurants</h2></div>
                     <table class="table">
 
-                    <tr><% @businesses.each do |business| %></tr>
-                    <td><%= business.name %></td>
-                    <td><%= business.business_id %></td>
-                    <td><%= business.address %></td>
-                    <td><%= link_to 'Add Business', new_business_path %>
-                    <%= link_to 'Inspections', lou_inspections_path %>
-                    <%= link_to 'Violations' %>
-                  </td>
-                <% end %>
-              </table>
+                    <tbody>
+                    <% @businesses.each do |business| %>
+                      <tr>
+                        <td><%= business.name %></td>
+                        <td><%= business.address %></td>
+                        <td><%= business.city%></td>
+                        <td><%= business.state %></td>
+                        <td><%= business.postal_code %></td>
+                        <td><%= business.phone_number %></td>
+                        <td><%= link_to 'Show', business %></td>
+                        <td><%= link_to 'Edit', edit_business_path(business) %></td>
+                        <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+
+                      </tr>
+                    <% end %>
+                  </tbody>
+</table>
 
           </div>
 

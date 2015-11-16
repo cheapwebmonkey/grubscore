@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
 end
   
   #  def index
-  #   @business = Business.all
+  #   @businesses = Business.all
   # end
 
   # def import

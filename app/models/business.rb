@@ -1,9 +1,11 @@
 class Business < ActiveRecord::Base
   require 'csv'
   has_paper_trail
-  self.primary_key = 'business_id'
-  belongs_to :lou_inspections
-  belongs_to :lou_violations
+  #self.primary_key = 'business_id'
+  has_many :lou_inspection
+  # has_many :score, through: lou_inspection
+  has_many :lou_violation
+  # has_many :description, through: lou_violation
   
   # validates_uniqueness_of :business_id
   validates :name, presence: true
@@ -11,11 +13,12 @@ class Business < ActiveRecord::Base
   validates :city, presence: true
   validates :state, presence: true
   validates :postal_code, presence: true
+  validates :phone_number, presence: true
 
   default_scope ->{ order('created_at') }
 
-  scope :id, -> {where("id >= ?", 1)}
-  scope :newest, -> {order("created_at DESC, paginates_per(25)")}
+  scope :id, ->{where("id >= ?", 1)}
+  scope :newest, ->{order("created_at DESC, paginates_per(25)")}
   paginates_per 50
 
 
@@ -27,10 +30,9 @@ class Business < ActiveRecord::Base
   after_validation :geocode
 
   def index
-    Business.all.paginates_per 50
+    @businesses = Business.all.paginates_per 50
     
   end
-
   
     def full_address
       "#{address}, #{postal_code}, #{city}, #{state}"
@@ -42,9 +44,9 @@ class Business < ActiveRecord::Base
     end
 
 
-    def update_rating!
-      update_attributes :score
-    end
+    # def update_rating!
+    #   update_attributes :score
+    # end
   
 end
   

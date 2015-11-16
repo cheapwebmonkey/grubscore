@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get "/login" => "user_sessions#new", as: :login
+  # get "/business" =>"business#edit", as: :edit
   delete "/logout" => "user_sessions#destroy", as: :logout
   
   resources :users
@@ -9,15 +10,15 @@ Rails.application.routes.draw do
   resources :lou_inspections
 
   # resources :lou_violations
-
-  # resources :businesses do
-  #   resources :lou_inspections, lou_violations do
-  #     member do
-  #       patch :complete
-  #     end
-  #   end
-  # end
-  # root 'businesses#index'
+  resources :businesses 
+  resources :businesses do
+    resources :lou_inspections, :lou_violations do
+      member do
+        patch :complete
+      end
+    end
+  end
+  root 'businesses#index'
 
  resources :users do
     # resources :lou_inspections do
@@ -27,7 +28,7 @@ Rails.application.routes.draw do
     # end
   end
   #this sets the app root path to the /users/new sign up page
-  root 'users#new'
+  # root 'users#new'
 
   
   # resources :businesses do
@@ -53,12 +54,11 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  resources :businesses, only: [:new, :create, :edit, :distroy]
-
   
-  resources :businesses do
-  collection { post :import }
-end
+  
+#   resources :businesses do
+#   collection { post :import }
+# end
   # Example resource route with options:
   #   resources :products do
   #     member do

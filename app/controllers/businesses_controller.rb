@@ -1,12 +1,16 @@
 class BusinessesController < ApplicationController
   before_action :require_user
-  before_action :set_businesses, only: [:show, :edit, :update, :destroy]
+  # before_action :set_businesses, only: [:show, :edit, :update, :destroy]
 
 
-  # GET /businesses
+  # GET /businesses/new
+  def new
+    @business = Business.new
+  end
 
   # GET /businesses.json
   def index
+    @businesses = Business.all
     @businesses = Business.page(params[:page])
     # @businesses = Business.all
     # @businesses = Business.order(:name).index params[:page]
@@ -27,16 +31,14 @@ class BusinessesController < ApplicationController
   # GET /businesses/1
   # GET /businesses/1.json
   def show
-    #@businesses = Business.order(:name).page params[:page]
+    @business = Business.find(params[:id])
   end
 
-  # GET /businesses/new
-  def new
-    @business = Business.new
-  end
+ 
 
   # GET /businesses/1/edit
   def edit
+    @business = Business.find(params[:id])
   end
 
   # POST /businesses
@@ -46,7 +48,8 @@ class BusinessesController < ApplicationController
 
     respond_to do |format|
       if @business.save
-        format.html { redirect_to @business, notice: 'Business was successfully created.' }
+        session[:business_id] = @business.id
+        format.html { redirect_to businesses_path, success: 'Thanks for adding your business!' }
         format.json { render action: 'show', status: :created, location: @business }
       else
         format.html { render action: 'new' }
@@ -69,28 +72,24 @@ class BusinessesController < ApplicationController
     end
   end
 
-  # DELETE /businesses/1
-  # DELETE /businesses/1.json
+ # DELETE /users/1
+  # DELETE /users/1.json
   def destroy
-    @business.destroy
-    respond_to do |format|
-      format.html { redirect_to businesses_url }
-      format.json { head :no_content }
+    @business = Business.find(params[:id])
+    if @business.present?
+      @business.destroy
     end
-  end
-
-    def inspections
-    @lou_inpsections = LouInspeciton.all
-  end
+    redirect_to root_url
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_business
-      @business = Business.find(params[:business_id])
+      @business = Business.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def business_params
-      params.require(:business).permit(:name, :address, :city, :state, :postal_code)
+      params.require(:business).permit(:name, :address, :city, :state, :postal_code, :phone_number)
     end
 end

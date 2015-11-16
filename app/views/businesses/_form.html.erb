@@ -67,10 +67,7 @@
     </div>
     </div>
     
-   <div class="field"> 
-   <%= f.label :business_id %><br>
-   <%= f.number_field(:business_id, in: 1...999999999) %>  
-  </div>
+
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -90,6 +87,10 @@
   <div class="field">
     <%= f.label :postal_code %><br>
     <%= f.text_field(:postal_code) %>
+  </div>
+<div class="field">
+    <%= f.label :phone_number %><br>
+  <%= f.text_field(:phone_number) %>
   </div>
   <div class="actions">
     <%= f.submit "Add Business" %>
