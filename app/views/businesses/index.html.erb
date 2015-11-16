@@ -90,12 +90,8 @@
   <%= submit_tag "Search" %>
 
   <% end %>
-        <% @businesses.each do |business| %>
-          <div class="business">
-            <h3 class="business-name"><%= link_to business.name %></h1>
-            <p class="business-id"><%= business.business_id %></p>
-        </div>
-        <% end %>
+
+
          
           <%= paginate @businesses %>   
           </div>

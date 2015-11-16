@@ -78,7 +78,7 @@ class BusinessesController < ApplicationController
   def destroy
     @business = Business.find(params[:id])
     if @business.present?
-      @status_update.destroy
+        @business.destroy
     end
     redirect_to root_url
 end
