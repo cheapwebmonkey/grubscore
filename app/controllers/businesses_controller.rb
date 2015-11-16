@@ -91,6 +91,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def business_params
-      params.require(:business).permit(:name, :address, :city, :state, :postal_code, :phone_number)
+      params.require(:business).permit(:name, :business_id, :address, :city, :state, :postal_code, :phone_number)
     end
 end

@@ -59,6 +59,8 @@
                     <tbody>
                     <% @businesses.each do |business| %>
                       <tr>
+                        
+                        <td><%= business.business_id %></td>
                         <td><%= business.name %></td>
                         <td><%= business.address %></td>
                         <td><%= business.city%></td>
