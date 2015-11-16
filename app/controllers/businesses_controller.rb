@@ -61,6 +61,7 @@ class BusinessesController < ApplicationController
   # PATCH/PUT /businesses/1
   # PATCH/PUT /businesses/1.json
   def update
+    @business = Business.find(params[:id])
     respond_to do |format|
       if @business.update(business_params)
         format.html { redirect_to @business, notice: 'Business was successfully updated.' }
@@ -77,7 +78,7 @@ class BusinessesController < ApplicationController
   def destroy
     @business = Business.find(params[:id])
     if @business.present?
-      @business.destroy
+      @status_update.destroy
     end
     redirect_to root_url
 end
