@@ -14,6 +14,17 @@
  *= require_self
 
  */
+ /* Alerts */
+ div.alert {
+  border: 2px solid #aaa;
+  padding: 10px;
+}
+
+div.flash.success { border: 2px solid green; color: green; }
+div.flash.error   { border: 2px solid red;   color: red;   }
+div.flash.notice  { border: 2px solid teal;  color: teal;  }
+
+.clear { clear: both; }
 
  /* Logos & Icons */
 
@@ -59,18 +70,20 @@ h1 {
 
 @media (max-width: 100%) {
 	.jumbotron {
-		padding: 80px 0 80px 0;
-		
+		padding: 80px 0 80px 0;	
+	}
+
+	.content {
+		padding-top: 190px;
 		}
 
 	.panel {
 	padding: 2rem;
-	margin-top: 2rem;
 	}
 
-	.ft-copy {
-		padding-top: 182px;
-	}
+	./*ft-copy {
+		padding-top: 2rem;
+	}*/
 	.ft-copy {
 		width: auto;
 	}
@@ -88,6 +101,10 @@ h1 {
 		margin-top: 32px;
 		margin-bottom: 32px;
 	}
+
+	.container {
+		padding: 60px;
+		}
 
 	.panel {
 	padding: 1rem;

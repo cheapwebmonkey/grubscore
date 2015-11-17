@@ -1,20 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-    <title>GrubScore</title>
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <title>GrubScore-Up your food game.</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    </head>
-    <body>
-
-    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <!-- <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -24,6 +20,7 @@
     <![endif]-->
     </head>
     <body>
+   
       <!--Navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -36,34 +33,21 @@
           </button>
         <div>  
           <%= image_tag 'main-logo.png' %>
-          <a class="brand main-logo pull-left" href="#" >GrubScore</a>
           <p class="navbar-text pull-right hidden-xs">Level Up Your Food Game</p>
         </div>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="businesses.html">Home</a></li>
-            <li><a href="lou_inspections.html">Inspections</a></li>
-            <li><a href="lou_violations.html">Violations</a></li>
+            <li><a href="/">Businesses</a></li>
+            <li ><a href="/lou_inspections">Inspections</a></li>
+            <li><a href="/lou_violations">Violations</a></li>
           </ul>
        </div>
      </div>
     </nav>
-    <!-- Jumbotron -->
-    <!-- <div class="jumbotron"> -->
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-          <div class="ft-copy">
-            <h1>GrubScore</h1>
-            </div>
-
-            <div class="content">
-
-              <%= yield %>
+        <%= yield %>
              
-              </div>
-          </div>
-        </div>
-  </body>
+             
+          
+ </body> 
 </html>

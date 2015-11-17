@@ -1,41 +1,21 @@
 
-              <!-- Jumbotron -->
-    <div class="jumbotron">
+<body>
+<div class = "jumbotron">
       <div class="container">
         <div class="row">
-          <div class="col-sm-12">
-
-            <% flash.each do |type, message| %>
-            <div class="alert flash <%= type %>">
-              <%= message %>
-            </div>
-            <% end %>
-
-            <div class="content">
-
-            <%= yield %>
-            <!-- <div class="">
-              <!-- <h1><%= link_to "GrubScore", root_path %></h1> -->
-              <!-- <ul>
-                <li><%= link_to "Businesses", businesses_path %></li>
-                <li><%= link_to "Sign Up", new_user_path %></li>
-              </ul>
-              <br class="clear" />
-            </div> --> 
-          </div>
-
-              <button type ="button" class="button-warning"> <%= link_to 'Add New Business', new_business_path %></h3>
-                  </button>
-
+        <hr>
+          <!-- <div class="col-sm-12">
+          
+            <p class="ft-copy">Search for Business Names here</p>
+            </div> -->
+            <div class="col-sm-12">
                   <div class="panel panel-default">
                     <div class="panel-body">
-                    <div class="panel-heading"><h2>Louisville Restaurants</h2></div>
+                    <div class="panel-heading"><h2>GrubScore: Louisville Restaurants</h2></div>
                     <table class="table">
-
                     <tbody>
                     <% @businesses.each do |business| %>
-                      <tr>
-                        
+                      <tr> 
                         <td><%= business.business_id %></td>
                         <td><%= business.name %></td>
                         <td><%= business.address %></td>
@@ -46,36 +26,35 @@
                         <td><%= link_to 'Show', business %></td>
                         <td><%= link_to 'Edit', edit_business_path(business), :"data-no-turbolink" => true %></td>
                         <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' }%></td>
-
                       </tr>
                     <% end %>
                   </tbody>
-</table>
-
-          </div>
-
-          </div>
+                </table>
+                </div>
+            </div>
+           </div>
+         </div>
         </div>
-      </div>
-    </div>
+        </div>
      <div class="container">
         <div class="row">
           <div class="col-sm-6">
           <div>
-          <%= link_to 'New Business', new_business_path %>
-          <%= form_tag(businesses_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Businesses" %>
-  <%= submit_tag "Search" %>
+            <%= link_to 'New Business', new_business_path %>
+            <%= form_tag(businesses_path, :method => "get", id: "search-form") do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search Businesses" %>
+            <%= submit_tag "Search" %>
 
-  <% end %>
+          <% end %>
 
-
-         
-          <%= paginate @businesses %>   
+            <%= paginate @businesses %>   
           </div>
-
         </div>
-     </div>
+        </div>
+        </div>
+        </body>
+      
+    
                  
             
      
