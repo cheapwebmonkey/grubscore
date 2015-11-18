@@ -20,7 +20,7 @@ class LouInspection < ActiveRecord::Base
 # lou_inspection = LouInspection.create(params[:business])
 # lou_inspection.business
 
-# end
+end
 
 	def index
 	  @lou_inspections = LouInspection.all.paginates_per 50
