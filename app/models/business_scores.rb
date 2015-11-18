@@ -10,7 +10,7 @@ class CreateBusinessScores < ActiveRecord::Migration
       t.timestamps null: false
     end
  
-    create_table : do |t|
+    create_table :lou_violations do |t|
       t.belongs_to :business, index: true
       t.belongs_to :lou_inspection, index: true
       t.int :score
