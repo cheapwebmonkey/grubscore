@@ -11,6 +11,6 @@ class LouViolation < ActiveRecord::Base
 end
 
 def index
-	  LouViolation.all.paginates_per 50
+	  @lou_violations = LouViolation.all.paginates_per 50
 
 end
