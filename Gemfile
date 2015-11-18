@@ -71,6 +71,7 @@ end
 group :test do
   gem 'minitest'
   gem 'shoulda-matchers', '~> 2.4.0'
+  gem 'pg'
 
 end
 
