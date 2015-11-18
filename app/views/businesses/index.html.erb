@@ -1,44 +1,38 @@
 
-<body>
-<div class = "jumbotron">
-      <div class="container">
-        <div class="row">
-        <hr>
-          <!-- <div class="col-sm-12">
-          
-            <p class="ft-copy">Search for Business Names here</p>
-            </div> -->
-            <div class="col-sm-12">
-                  <div class="panel panel-default">
+        
+        <div class = "jumbotron">
+
+        </br>
+        <div class = "row">
+          <div class="col-lg-12">
+            <h1>GrubScore:</h1>
+                <div class="panel panel-default">
                     <div class="panel-body">
-                    <div class="panel-heading"><h2>GrubScore: Louisville Restaurants</h2></div>
+                    <div class="panel-heading"><h2>Louisville Restaurants</h2></div>
                     <table class="table">
-                    <tbody>
-                    <% @businesses.each do |business| %>
-                      <tr> 
+                   
+                     <tr> <% @businesses.each do |business| %></tr>
                         <td><%= business.business_id %></td>
                         <td><%= business.name %></td>
-                        <td><%= business.address %></td>
-                        <td><%= business.city%></td>
-                        <td><%= business.state %></td>
-                        <td><%= business.postal_code %></td>
+                        
+                        
                         <td><%= business.phone_number %></td>
-                        <td><%= link_to 'Show', business %></td>
-                        <td><%= link_to 'Edit', edit_business_path(business), :"data-no-turbolink" => true %></td>
-                        <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' }%></td>
-                      </tr>
+                        <td><%= link_to 'Details', business %></td>
+                        
+                      
                     <% end %>
-                  </tbody>
+                
+                
                 </table>
-                </div>
+                
             </div>
            </div>
          </div>
-        </div>
-        </div>
-     <div class="container">
-        <div class="row">
-          <div class="col-sm-6">
+         </div>
+         </div>
+       
+    
+          <div class="col-lg-4">
           <div>
             <%= link_to 'New Business', new_business_path %>
             <%= form_tag(businesses_path, :method => "get", id: "search-form") do %>
@@ -50,9 +44,10 @@
             <%= paginate @businesses %>   
           </div>
         </div>
-        </div>
-        </div>
-        </body>
+
+        
+        
+     
       
     
                  

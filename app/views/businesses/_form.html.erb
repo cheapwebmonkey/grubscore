@@ -2,12 +2,7 @@
  <!-- Jumbotron -->
     <div class="jumbotron">
       <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-
-            <h1>New business</h1>
-
-            <div class="col-sm-8">
+        
             <%= form_for(@business) do |f| %>
             <% if @business.errors.any? %>
             <div id="error_explanation">
@@ -19,12 +14,12 @@
                 <% end %>
                 </ul>
               </div>
-            </div>
+           
           <% end %>
-        </div>
-        </div>
-    
-
+       
+       
+    <div class = "row">
+      <div class="col-lg-4">
   
   <div class="field">
     <%= f.label :business_id %><br>
@@ -34,10 +29,16 @@
     <%= f.label :name %><br>
     <%= f.text_field(:name) %>
   </div>
+  
   <div class="field">
     <%= f.label :address %><br>
     <%= f.text_field(:address) %>
   </div>
+  </div>
+ 
+
+  <div class = "row">
+    <div class="col-lg-4">
   <div class="field">
     <%= f.label :city %><br>
     <%= f.text_field(:city) %>
@@ -50,16 +51,20 @@
     <%= f.label :postal_code %><br>
     <%= f.text_field(:postal_code) %>
   </div>
-<div class="field">
+      <div class="field">
     <%= f.label :phone_number %><br>
-  <%= f.text_field(:phone_number) %>
+    <%= f.text_field(:phone_number) %>
   </div>
   <div class="actions">
     <%= f.submit "Add Business" %>
   </div>
+  </div>
+
 
 <% end %>
 
+</div>
+</div>
 </div>
 </div>
 
