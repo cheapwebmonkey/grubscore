@@ -65,7 +65,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara', '~> 2.2.0'
   gem 'factory_girl_rails', '~> 4.0'
-  gem 'pg', '~> 0.18.4'
+  
 
 end
 
@@ -86,6 +86,7 @@ group :development do
 end
 
 group :production do
+	gem 'pg', '~> 0.18.4'
   gem 'rails_12factor'
 end
 
