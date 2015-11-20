@@ -11,18 +11,17 @@ class LouInspection < ActiveRecord::Base
 
   accepts_nested_attributes_for :business
 
-#  params = { lou_inspection: {
-#   business_id: 'some number', business_attributes: [
-#     { name: 'Kari, the awesome Ruby documentation browser!' }
-#   ]
-# }}
-
-# lou_inspection = LouInspection.create(params[:business])
-# lou_inspection.business
-
 end
 
 	def index
-	  @lou_inspections = LouInspection.all.paginates_per 50
+	  @lou_inspections = LouInspection.all
 
 	end
+
+	 def self.search(search)
+    if search
+      find(:all, conditions: ['business_id || score LIKE ?', "%#{search}%"], order: "created_at DESC")
+    else
+      find(:all)
+    end
+  end

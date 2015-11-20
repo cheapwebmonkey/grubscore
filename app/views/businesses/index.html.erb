@@ -1,8 +1,9 @@
 
-        
+      
         <div class = "jumbotron">
 
         </br>
+        <div class ="container">
         <div class = "row">
           <div class="col-lg-12">
             <h1>GrubScore:</h1>
@@ -14,14 +15,9 @@
                      <tr> <% @businesses.each do |business| %></tr>
                         <td><%= business.business_id %></td>
                         <td><%= business.name %></td>
-                        
-                        
                         <td><%= business.phone_number %></td>
-                        <td><%= link_to 'Details', business %></td>
-                        
-                      
+                        <td><%= link_to 'Details', business %></td> 
                     <% end %>
-                
                 
                 </table>
                 
@@ -29,21 +25,26 @@
            </div>
          </div>
          </div>
-         </div>
+         
        
     
           <div class="col-lg-4">
-          <div>
-            <%= link_to 'New Business', new_business_path %>
-            <%= form_tag(businesses_path, :method => "get", id: "search-form") do %>
-            <%= text_field_tag :search, params[:search], placeholder: "Search Businesses" %>
-            <%= submit_tag "Search" %>
+          <!-- <div>
+           
 
+           <%= form_tag(businesses_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Businesses" %>
+          <%= submit_tag "Search" %>
           <% end %>
+          </div> -->
 
+          <div>
             <%= paginate @businesses %>   
+            </div>
           </div>
         </div>
+        </div>
+    </div>
 
         
         

@@ -1,5 +1,6 @@
 class Business < ActiveRecord::Base
   require 'csv'
+  include Filterable
   has_paper_trail
   #self.primary_key = 'business_id'
   has_many :lou_inspection
@@ -7,7 +8,7 @@ class Business < ActiveRecord::Base
   has_many :lou_violation
   # has_many :description, through: lou_violation
   
-  # validates_uniqueness_of :business_id
+  validates_uniqueness_of :business_id
   validates :name, presence: true
   validates :address, length: { minimum: 3 }
   validates :city, presence: true
@@ -30,7 +31,7 @@ class Business < ActiveRecord::Base
   after_validation :geocode
 
   def index
-    @businesses = Business.all.paginates_per 50
+    @businesses = Business.all
     
   end
   
@@ -38,15 +39,14 @@ class Business < ActiveRecord::Base
       "#{address}, #{postal_code}, #{city}, #{state}"
     end
 
-    def self.search(search)
-      # Title is for the above case, the OP incorrectly had 'name'
-      where("name LIKE ?", "%#{search}%")
+
+  def self.search(search)
+    if search
+      find(:all, conditions: ['name || business_id LIKE ?', "%#{search}%"], order: "created_at DESC")
+    else
+      find(:all)
     end
-
-
-    # def update_rating!
-    #   update_attributes :score
-    # end
+  end
   
 end
   

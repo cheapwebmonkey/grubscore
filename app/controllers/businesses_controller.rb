@@ -10,22 +10,14 @@ class BusinessesController < ApplicationController
 
   # GET /businesses.json
   def index
-    @businesses = Business.all
-    @businesses = Business.page(params[:page])
-    # @businesses = Business.all
-    # @businesses = Business.order(:name).index params[:page]
+    @businesses = Business.page(params[:search])
+    if @businesses.class == Array
+    @businesses = Kaminari.paginate_array(@businesses).page(params[:page]).per(10) 
+    else
+    @businesses = @businesses.page(params[:page]).per(10) # if @posts is AR::Relation object 
+    end
 
-    # # Kaminari.configure do |config|
-    # # config.page_method_name = :per_page_kaminari
-    # # end
 
-    # #@businesses = Business.order(:name).page params[:page]
-
-    # if params[:search]
-    #   @businesses = Business.search(params[:search]).order("created_at DESC")
-    # else
-    #   @businesses = Business.all.order('created_at DESC')
-    # end
   end
 
   # GET /businesses/1

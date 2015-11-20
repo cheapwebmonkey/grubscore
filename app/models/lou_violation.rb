@@ -11,6 +11,14 @@ class LouViolation < ActiveRecord::Base
 end
 
 def index
-	  @lou_violations = LouViolation.all.paginates_per 50
+	  @lou_violations = LouViolation.all
 
 end
+
+def self.search(search)
+    if search
+      find(:all, conditions: ['business_id || description LIKE ?', "%#{search}%"], order: "created_at DESC")
+    else
+      find(:all)
+  	end
+  end
