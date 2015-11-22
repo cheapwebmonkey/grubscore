@@ -12,6 +12,10 @@
                     <div class="panel-body">
                     <div class="panel-heading"><h2>GrubScore: Louisville Restaurant Inspections</h2></div>
                     <table class="table">
+                    <th>Business Id</th>
+                    <th>Inspection Score</th>
+                    <th>Inspection Date</th>
+                    <th>Inspection Type</th>
                     <tr><% @lou_inspections.each do |lou_inspection| %></tr>
                     <td><%= lou_inspection.business_id %></td>
                     <td><%= lou_inspection.score %></td>
@@ -26,8 +30,8 @@
               </table>
 
               <%= search_form_for @q do |f| %>
-            <%= f.label :BusinessId_eq %>
-            <%= f.search_field :business_id_eq %>
+            <%= f.label :'Business Id_or_score_eq' %>
+            <%= f.search_field :business_id_or_score_eq %>
 
             <%= f.submit "search" %>
             <% end %>

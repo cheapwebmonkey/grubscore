@@ -22,9 +22,7 @@ class BusinessesController < ApplicationController
    
    #code doesn't break pagination with kaminari
     @q = Business.search(params[:q])
-
     @businesses = @q.result.page(params[:page]).per(10)
-
   end
      
   

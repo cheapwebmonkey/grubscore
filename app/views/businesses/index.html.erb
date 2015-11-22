@@ -11,7 +11,10 @@
                     <div class="panel-body">
                     <div class="panel-heading"><h2>Louisville Restaurants</h2></div>
                     <table class="table">
-                   
+                    <th>Business Id</th>
+                    <th>Business Name</th>
+                    <th>Phone Number</th>
+                    <th>Business Details</th>
                      <tr> <% @businesses.each do |business| %></tr>
                         <td><%= business.business_id %></td>
                         <td><%= business.name %></td>
@@ -29,12 +32,12 @@
        
     
           <div class="col-lg-4">
-        <%= search_form_for @q do |f| %>
-  <%= f.label :name_cont %>
-  <%= f.search_field :name_cont %>
+            <%= search_form_for @q do |f| %>
+            <%= f.label :name_cont %>
+            <%= f.search_field :name_cont %>
 
-  <%= f.submit "search" %>
-<% end %>
+            <%= f.submit "search" %>
+            <% end %>
           </div>
 
           <div>
