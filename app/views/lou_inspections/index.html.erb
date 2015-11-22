@@ -10,19 +10,27 @@
             <div class="col-sm-12">
                   <div class="panel panel-default">
                     <div class="panel-body">
-                    <div class="panel-heading"><h2>GrubScore: Louisville Restaurants</h2></div>
+                    <div class="panel-heading"><h2>GrubScore: Louisville Restaurant Inspections</h2></div>
                     <table class="table">
                     <tr><% @lou_inspections.each do |lou_inspection| %></tr>
                     <td><%= lou_inspection.business_id %></td>
                     <td><%= lou_inspection.score %></td>
+                    <td><%= lou_inspection.date %></td>
                     <td><%= lou_inspection.visit %></td>
-                    <td><%= link_to 'Details' %>
+                    <!-- <td><%= link_to 'D' %> -->
                     
                   </td>
                 
                 <% end %>
                 
               </table>
+
+              <%= search_form_for @q do |f| %>
+            <%= f.label :BusinessId_eq %>
+            <%= f.search_field :business_id_eq %>
+
+            <%= f.submit "search" %>
+            <% end %>
 
               <%= paginate @lou_inspections %> 
 

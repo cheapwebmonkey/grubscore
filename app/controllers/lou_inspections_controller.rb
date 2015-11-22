@@ -9,7 +9,13 @@ before_action :set_lou_inspections, only: [:show]
     @lou_inspections = @lou_inspections.page(params[:page]).per(10) # if @posts is AR::Relation object 
     end
 
+#code doesn't break pagination with kaminari
+    @q = LouInspection.search(params[:q])
+
+    @lou_inspections = @q.result.page(params[:page]).per(10)
   end
+
+ 
 
   # GET /louinspections/1
   # GET /louinspections/1.json

@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:success] = "Thanks for logging in!"
-      redirect_to businesses_path
+      redirect_to root_path
 
 else
       flash[:error] = "There was a problem logging in. Please check your email and password."
@@ -24,7 +24,7 @@ else
     redirect_to root_path, notice: "You have been logged out."
   end
 end
-      
+
 #     else
 #       logger.info params.inspect
 #       logger.info(user.authenticate(params[:password]).to_s)

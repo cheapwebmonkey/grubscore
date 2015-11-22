@@ -43,8 +43,11 @@ gem 'devise'
 #gritter flash messages
 gem "gritter", "1.2.0"
 
-
+#pagination
 gem 'kaminari'
+
+#text search
+gem 'ransack', github: 'activerecord-hackery/ransack'
 
 # gem 'minitest'
 

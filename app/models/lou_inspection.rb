@@ -2,6 +2,7 @@ class LouInspection < ActiveRecord::Base
   require 'csv'
   has_paper_trail
   belongs_to :business
+  
   # has_many :business_id, through: :business
   # belongs_to :business
   scope :violation, -> {where("business_id >= ?", 1)}

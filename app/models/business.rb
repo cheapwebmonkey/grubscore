@@ -19,8 +19,9 @@ class Business < ActiveRecord::Base
   default_scope ->{ order('created_at') }
 
   scope :id, ->{where("id >= ?", 1)}
-  scope :newest, ->{order("created_at DESC, paginates_per(25)")}
-  paginates_per 50
+  scope :business_id, -> (business_id) { where business_id: business_id }
+  scope :location, -> (location_id) { where location_id: location_id }
+  scope :starts_with, -> (name) { where("name like ?", "#{name}%")}
 
 
   #defining a new function :starts_with which will pass in a (letter) which it uses to perform a search
@@ -29,10 +30,21 @@ class Business < ActiveRecord::Base
   
   geocoded_by :full_address
   after_validation :geocode
+  
 
   def index
     @businesses = Business.all
+
     
+  end
+
+  def show
+  
+  end
+
+  def search
+    index
+    render :index
   end
   
     def full_address
@@ -40,13 +52,7 @@ class Business < ActiveRecord::Base
     end
 
 
-  def self.search(search)
-    if search
-      find(:all, conditions: ['name || business_id LIKE ?', "%#{search}%"], order: "created_at DESC")
-    else
-      find(:all)
-    end
-  end
+
   
 end
   

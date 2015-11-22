@@ -1,5 +1,6 @@
 class BusinessesController < ApplicationController
   before_action :require_user
+  before_filter :set_search
   # before_action :set_businesses, only: [:show, :edit, :update, :destroy]
 
 
@@ -11,14 +12,22 @@ class BusinessesController < ApplicationController
   # GET /businesses.json
   def index
     @businesses = Business.page(params[:search])
-    if @businesses.class == Array
+    @businesses = Kaminari.paginate_array(@businesses).page(params[:page]).per(10)
+     if @businesses.class == Array
     @businesses = Kaminari.paginate_array(@businesses).page(params[:page]).per(10) 
     else
-    @businesses = @businesses.page(params[:page]).per(10) # if @posts is AR::Relation object 
-    end
+    @businesses = @businesses.page(params[:page]).per(10) 
+    # if @businesses is AR::Relation object 
+  end
+   
+   #code doesn't break pagination with kaminari
+    @q = Business.search(params[:q])
 
+    @businesses = @q.result.page(params[:page]).per(10)
 
   end
+     
+  
 
   # GET /businesses/1
   # GET /businesses/1.json
@@ -65,6 +74,10 @@ class BusinessesController < ApplicationController
     end
   end
 
+  def set_search
+    @search=Business.search(params[:q])
+  end
+
  # DELETE /users/1
   # DELETE /users/1.json
   def destroy
@@ -73,7 +86,7 @@ class BusinessesController < ApplicationController
         @business.destroy
     end
     redirect_to root_url
-end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -81,8 +94,17 @@ end
       @business = Business.find(params[:id])
     end
 
+  end
+
+    private
+
+    # A list of the param names that can be used for filtering the Product list
+    def filtering_params(params)
+      params.slice(:business_id, :location, :starts_with)
+    end
+
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def business_params
       params.require(:business).permit(:name, :business_id, :address, :city, :state, :postal_code, :phone_number)
     end
-end

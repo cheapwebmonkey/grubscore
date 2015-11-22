@@ -9,8 +9,12 @@ before_action :set_lou_violations, only: [:show]
     @lou_violations = @lou_violations.page(params[:page]).per(10) # if @posts is AR::Relation object 
     end
 
-  
+  #code doesn't break pagination with kaminari
+    @q = LouViolation.search(params[:q])
+
+    @lou_violation = @q.result.page(params[:page]).per(10)
   end
+ 
 
   # GET /lou_violations/1
   # GET /lou_violations/1.json

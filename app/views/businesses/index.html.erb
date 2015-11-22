@@ -29,17 +29,17 @@
        
     
           <div class="col-lg-4">
-          <!-- <div>
-           
+        <%= search_form_for @q do |f| %>
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
 
-           <%= form_tag(businesses_path, :method => "get", id: "search-form") do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Search Businesses" %>
-          <%= submit_tag "Search" %>
-          <% end %>
-          </div> -->
+  <%= f.submit "search" %>
+<% end %>
+          </div>
 
           <div>
-            <%= paginate @businesses %>   
+
+            <%= paginate @businesses, :left => 1, :right => 3 %>   
             </div>
           </div>
         </div>

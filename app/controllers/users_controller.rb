@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+#instatiates to be able to use as index view
   def new
     @user = User.new
   end

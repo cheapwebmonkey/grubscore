@@ -44,6 +44,7 @@
 	</div>
 
 		<%= link_to 'Edit', edit_business_path(@business) %> |
+		<%= link_to 'Destroy', @business, method: :delete, data: { confirm: 'Are you sure?' } %> |
 		<%= link_to 'Back', businesses_path %>
 
 </div>
