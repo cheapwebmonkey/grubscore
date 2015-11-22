@@ -4,7 +4,7 @@ class Business < ActiveRecord::Base
   has_paper_trail
   #self.primary_key = 'business_id'
   has_many :lou_inspection
-  # has_many :score, through: lou_inspection
+  has_many :score, :through => :lou_inspection
   has_many :lou_violation
   # has_many :description, through: lou_violation
   
@@ -22,6 +22,7 @@ class Business < ActiveRecord::Base
   scope :business_id, -> (business_id) { where business_id: business_id }
   scope :location, -> (location_id) { where location_id: location_id }
   scope :starts_with, -> (name) { where("name like ?", "#{name}%")}
+  scope :score, -> (score) { where("score like ?", "#{score}%")}
 
 
   #defining a new function :starts_with which will pass in a (letter) which it uses to perform a search
@@ -33,13 +34,15 @@ class Business < ActiveRecord::Base
   
 
   def index
-    @businesses = Business.all
-
-    
+    #@businesses = Business.all
+    @businesses = Business.all.includes(:lou_inspection.score)  
+  
   end
 
+
+
   def show
-  
+
   end
 
   def search
@@ -51,11 +54,18 @@ class Business < ActiveRecord::Base
       "#{address}, #{postal_code}, #{city}, #{state}"
     end
 
+    def has_inspection_scores?
+     lou_inspection.score
+    end
+    
+
+    def lou_violations
+    end
 
 
   
-end
-  
+
+
   #def self.import(file)
     #CSV.foreach(file.path, headers: true) do |row|
 
@@ -70,3 +80,4 @@ end
     #end # end CSV.foreach
   #end # end self.import(file)
 #end # end class
+end

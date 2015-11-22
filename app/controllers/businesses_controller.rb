@@ -16,7 +16,9 @@ class BusinessesController < ApplicationController
      if @businesses.class == Array
     @businesses = Kaminari.paginate_array(@businesses).page(params[:page]).per(10) 
     else
-    @businesses = @businesses.page(params[:page]).per(10) 
+    @businesses = @businesses.page(params[:page]).per(10)
+
+ 
     # if @businesses is AR::Relation object 
   end
    
@@ -31,6 +33,12 @@ class BusinessesController < ApplicationController
   # GET /businesses/1.json
   def show
     @business = Business.find(params[:id])
+
+  end
+
+  def include
+    @lou_inspections = lou_inspection.includes(:business)
+    
   end
 
  

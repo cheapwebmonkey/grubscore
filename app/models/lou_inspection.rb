@@ -1,12 +1,15 @@
 class LouInspection < ActiveRecord::Base
   require 'csv'
+
   has_paper_trail
   belongs_to :business
   
+
   # has_many :business_id, through: :business
   # belongs_to :business
   scope :violation, -> {where("business_id >= ?", 1)}
   scope :newest, -> {order(s"created_at DESC")}
+  scope :score, -> {where("score >= ?", 0)}
   scope :ascore, -> {where("score >= ?", 85)}
   scope :cscore, -> {where("score <= ?", 85)}
 

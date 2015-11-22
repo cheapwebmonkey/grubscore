@@ -38,15 +38,30 @@
 				  <%= @business.phone_number %>
 				</p>
 
+				<p>
+				  <strong>Score:</strong>
+				  <%= @has_inspection_scores %>
+				</p>
+
+
+<% if @business.has_inspection_scores? %>
+<h3>Complete Items:</h3>
+
+<ul>
+  <% @business.lou_inspection.score do |lou_inpsection| %>
+  <li><%= lou_inspection.score %></li>
+  <% end %>
 
 			</div>
 		</div>
 	</div>
+	<% end %>
 
 		<%= link_to 'Edit', edit_business_path(@business) %> |
 		<%= link_to 'Destroy', @business, method: :delete, data: { confirm: 'Are you sure?' } %> |
 		<%= link_to 'Back', businesses_path %>
 
 </div>
+
 
 
