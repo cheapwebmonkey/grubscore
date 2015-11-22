@@ -4,7 +4,7 @@ class Business < ActiveRecord::Base
   has_paper_trail
   #self.primary_key = 'business_id'
   has_many :lou_inspection
-  has_many :score, :through => :lou_inspection
+  has_many :business_score, :through => :lou_inspection, :source => :business_score
   has_many :lou_violation
   # has_many :description, through: lou_violation
   
@@ -22,12 +22,13 @@ class Business < ActiveRecord::Base
   scope :business_id, -> (business_id) { where business_id: business_id }
   scope :location, -> (location_id) { where location_id: location_id }
   scope :starts_with, -> (name) { where("name like ?", "#{name}%")}
-  scope :score, -> (score) { where("score like ?", "#{score}%")}
+  scope :score, -> {where("lou_inpsection.score >=?", 0)}
 
 
   #defining a new function :starts_with which will pass in a (letter) which it uses to perform a search
   scope :starts_with, ->(letter) { where("name LIKE ?", letter + "%")}
   
+  accepts_nested_attributes_for :lou_inspection
   
   geocoded_by :full_address
   after_validation :geocode
@@ -39,7 +40,11 @@ class Business < ActiveRecord::Base
   
   end
 
-
+  def include_score
+    @lou_inspections = lou_inspection.includes(:business)
+    LouInspection.select(score).having("score > ?", nil)
+    
+  end
 
   def show
 

@@ -60,14 +60,14 @@ div.flash.notice  { border: 2px solid teal;  color: teal;  }
 /* Typography */
 
 h1 {
-	font-weight: 150;
-	padding-top: 1rem;
-	margin: 30px, 0, 30px, 0;
+	font-weight: 50;
+	padding-top: .5rem;
+	margin: 10px, 0, 10px, 0;
 	
 }
 
 a, ul.nav li a:visited {
-	color: #4cad9a;
+	color: #B71C1C;
 
 }
 

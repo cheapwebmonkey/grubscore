@@ -36,7 +36,7 @@ class BusinessesController < ApplicationController
 
   end
 
-  def include
+  def include_score
     @lou_inspections = lou_inspection.includes(:business)
     
   end
@@ -108,6 +108,9 @@ class BusinessesController < ApplicationController
     def filtering_params(params)
       params.slice(:business_id, :location, :starts_with)
     end
+
+
+   
 
 
     # Never trust parameters from the scary internet, only allow the white list through.
