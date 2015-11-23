@@ -58,10 +58,15 @@ div.flash.notice  { border: 2px solid teal;  color: teal;  }
 
 
 /* Typography */
+body{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 300;
+
+}
 
 h1 {
-	font-weight: 50;
-	padding-top: .5rem;
+	font-family: 'Fredericka the Great', cursive;
+	font-weight: 400;
 	margin: 10px, 0, 10px, 0;
 	
 }

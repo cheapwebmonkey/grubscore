@@ -1,46 +1,44 @@
+  <div class = 'col-lg-9'>
+    <h1>GrubScore</h1>
+  </div>
+  <div class = 'col-lg-3'>
+    <%= render 'logo' %>
+  </div>
 
-        <div class = "row">
-          <div class="col-lg-12">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                    <div class="panel-heading"><h1>GrubScore: Louisville Restaurants</h1></div>
-                    <table class="table">
-                    <th>Business Id</th>
-                    <th>Business Name</th>
-                    <th>Phone Number</th>
-                    <th>Business Details</th>
-                     <tr> <% @businesses.each do |business| %></tr>
-                        <td><%= business.business_id %></td>
-                        <td><%= business.name %></td>
-                        <td><%= business.phone_number %></td>
-                        <td><%= business.include_score %></td>
-                        <td><%= link_to 'Details', business %></td> 
-                    <% end %>
-                
-                </table>
-                
-            </div>
-           </div>
-         </div>
-         </div>
-         
-       
-    
-          <div class="col-lg-4">
-            <%= search_form_for @q do |f| %>
-            <%= f.label :name_cont %>
-            <%= f.search_field :name_cont %>
-
-            <%= f.submit "search" %>
+  <div class = "row">
+  <div class="col-lg-12">
+      <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="panel-heading"><h2>Louisville Restaurants</h2></div>
+          <table class="table">
+            <th>Business Id</th>
+            <th>Business Name</th>
+            <th>Phone Number</th>
+            <th>Business Details</th>
+            <tr> <% @businesses.each do |business| %></tr>
+              <td><%= business.business_id %></td>
+              <td><%= business.name %></td>
+              <td><%= business.phone_number %></td>
+              <td><%= business.include_score %></td>
+              <td><%= link_to 'Details', business %></td> 
             <% end %>
-          </div>
-
-          <div>
-
-            <%= paginate @businesses, :left => 1, :right => 3 %>   
-            </div>
-          </div>
+            </table>
         </div>
+        </div>
+    </div>
+    </div>
+    <div class="col-lg-4">
+      <%= search_form_for @q do |f| %>
+      <%= f.label :name_cont %>
+      <%= f.search_field :name_or_business_id_cont %>
+
+      <%= f.submit "search" %>
+      <% end %>
+    </div>
+
+    <div>
+      <%= paginate @businesses, :left => 1, :right => 3 %>   
+    </div>
    
 
         
