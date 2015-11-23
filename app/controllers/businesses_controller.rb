@@ -36,7 +36,7 @@ class BusinessesController < ApplicationController
 
   end
 
-  def include_score
+  def score
     @lou_inspections = lou_inspection.includes(:business)
     
   end

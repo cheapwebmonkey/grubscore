@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20151107230805) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.text     "description",  limit: 65535
-    t.integer  "score",        limit: 4
   end
 
   create_table "locations", force: :cascade do |t|

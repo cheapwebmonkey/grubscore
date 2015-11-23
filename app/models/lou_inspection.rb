@@ -22,6 +22,10 @@ end
 
 	end
 
+   def score
+    LouInspection.joins(:business, :score)
+  end
+
 	 def self.search(search)
     if search
       find(:all, conditions: ['business_id || score LIKE ?', "%#{search}%"], order: "created_at DESC")

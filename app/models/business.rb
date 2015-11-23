@@ -4,7 +4,7 @@ class Business < ActiveRecord::Base
   has_paper_trail
   #self.primary_key = 'business_id'
   has_many :lou_inspection
-  has_many :business_score, :through => :lou_inspection, :source => :business_score
+  has_many :score, :through => :lou_inspection, :source => :lou_inspection
   has_many :lou_violation
   # has_many :description, through: lou_violation
   
@@ -22,7 +22,7 @@ class Business < ActiveRecord::Base
   scope :business_id, -> (business_id) { where business_id: business_id }
   scope :location, -> (location_id) { where location_id: location_id }
   scope :starts_with, -> (name) { where("name like ?", "#{name}%")}
-  scope :score, -> {where("lou_inpsection.score >=?", 0)}
+  #scope :score, -> {where(:has_score => true).lou_inspection}
 
 
   #defining a new function :starts_with which will pass in a (letter) which it uses to perform a search
@@ -40,11 +40,9 @@ class Business < ActiveRecord::Base
   
   end
 
-  def include_score
-    @lou_inspections = lou_inspection.includes(:business)
-    LouInspection.select(score).having("score > ?", nil)
-    
-  end
+  # def score
+  #   lou_inspection if has_score? 
+  # end
 
   def show
 
@@ -55,12 +53,16 @@ class Business < ActiveRecord::Base
     render :index
   end
   
+  def score
+    Business.all.select(:lou_inspection_score)  
+  end
+
     def full_address
       "#{address}, #{postal_code}, #{city}, #{state}"
     end
 
     def has_inspection_scores?
-     lou_inspection.score
+     @business.score = LouInspection.score
     end
     
 

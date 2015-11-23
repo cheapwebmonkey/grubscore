@@ -1,31 +1,41 @@
+<div class = 'col-lg-9'>
+    <h1>GrubScore</h1>
+</div>
+<div class = 'col-lg-3'>
+    <%= render 'logo' %>
+</div>
 
-        <div class="row">
-        <hr>
-          <h1>GrubScore: Louisville Restaurants</h1>
-              <div class="panel panel-default">
-                <div class="panel-body">
-                  <div class="panel-heading"><h2>Violations:</h2></div>
-                  <table class="table">
-                  <th>Business Id</th>
-                  <th>Inspection Date</th>
-                  <th>Violation Description</th>
-                    <tr><% @lou_violations.each do |lou_violation| %></tr>
-                    <td><%= lou_violation.business_id %></td>
-                    <td><%= lou_violation.date %></td>
-                    <td><%= lou_violation.description %></td>
-                  </td> 
-                <% end %>
-                </table>
-                <%= search_form_for @q do |f| %>
-                <%= f.label :'Enter query' %>
-                <%= f.search_field :business_id_or_date_or_description_cont %>
-                <%= f.submit "search" %>
-                <% end %>
-
-                <%= paginate @lou_violations %> 
-              </div>
+  <div class = "row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+      <div class="panel-body">
+      <div class="panel-heading"><h2>Restaurant Violations</h2></div>
+        <table class="table">
+            <th>Business Id</th>
+            <th>Inspection Date</th>
+            <th>Violation Description</th>
+              <tr><% @lou_violations.each do |lou_violation| %></tr>
+              <td><%= lou_violation.business_id %></td>
+              <td><%= lou_violation.date %></td>
+              <td><%= lou_violation.description %></td>
+                   
+            <% end %>
+        </table>
             </div>
-           </div>
+        </div>
+      </div>
+    </div>
+            <div class= "col-lg-4">
+            <%= search_form_for @q do |f| %>
+            <%= f.label :'Enter query' %>
+            <%= f.search_field :business_id_or_date_or_description_cont %>
+            <%= f.submit "search" %>
+            <% end %>
+            </div>
+            <div class= "col-lg-4">
+            <%= paginate @lou_violations %> 
+            </div>
+      
       
         
   
