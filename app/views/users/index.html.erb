@@ -1,36 +1,31 @@
 <div class="container">
     <div class="col-lg-12">
-    <hr>
-    </br>
+    <h1>GrubScore: Users</h1>
       <p id="notice"><%= notice %></p>
-       <div class="panel panel-default">
-
-      <div class="panel-heading">Listing Users</div>
-
-         
-      <table class="table">
+      <div class="panel panel-default">
+      <div class="panel-body">
+      <div class="panel-heading"><h2>Current Users</h2></div>
+        <table class="table">
            
               <th>First name</th>
               <th>Last name</th>
               <th>Email</th>
-              <th>Password digest</th>
+              <th>Details</th>
  
         <tr><% @users.each do |user| %></tr>
      
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to 'Show', user %></td>
-        
-    
-   
+        <td><%= link_to 'Details', user %></td>
+    <% end %>
      </table>
-      <% end %>
+     
   </div>
 
 </div>
 
 <br>
-
-<%= link_to 'New User', new_user_path %>
+<div>
+<%= link_to 'Add New User', new_user_path %>
 </div>
