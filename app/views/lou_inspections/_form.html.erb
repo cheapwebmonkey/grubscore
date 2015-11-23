@@ -1,0 +1,52 @@
+ <%= form_for(@lou_inspection) do |f| %>
+    <% if @lou_inspection.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@lou_inspection.errors.count, "error") %> prohibited this inspection from being saved:</h2>
+
+          <ul>
+            <% @lou_inspection.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+              <% end %>
+          </ul>
+      </div>
+           
+      <% end %>
+       
+       
+    <div class = "row">
+      <div class="col-lg-4">
+  
+  <div class="field">
+    <%= f.label :business_id %><br>
+    <%= f.number_field(:business_id) %>
+  </div>
+  <div class="field">
+    <%= f.label :score %><br>
+    <%= f.number_field(:score) %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_field(:date) %>
+  </div>
+  </div>
+ 
+
+  <div class = "row">
+    <div class="col-lg-4">
+  <div class="field">
+    <%= f.label :visit %><br>
+    <%= f.text_field(:visit) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Add Inspection" %>
+  </div>
+  </div>
+
+
+<% end %>
+
+
+
+  

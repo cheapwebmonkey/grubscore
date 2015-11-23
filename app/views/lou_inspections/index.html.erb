@@ -1,46 +1,45 @@
+<div class = 'col-lg-9'>
+    <h1>GrubScore</h1>
+</div>
+<div class = 'col-lg-3'>
+    <%= render 'logo' %>
+</div>
 
-        <div class="row">
-        <hr>
-
-          <!-- <div class="col-sm-12">
-          
-            <p class="ft-copy">Search for Business Names here</p>
-            </div> -->
-            <div class="col-sm-12">
-            <h1>GrubScore: Louisville Restaurants</h1>
-                  <div class="panel panel-default">
-                    <div class="panel-body">
-                    <div class="panel-heading"><h2>Restaurant Inspections</h2></div>
-                    <table class="table">
-                    <th>Business Id</th>
-                    <th>Inspection Score</th>
-                    <th>Inspection Date</th>
-                    <th>Inspection Type</th>
-                    <tr><% @lou_inspections.each do |lou_inspection| %></tr>
-                    <td><%= lou_inspection.business_id %></td>
-                    <td><%= lou_inspection.score %></td>
-                    <td><%= lou_inspection.date %></td>
-                    <td><%= lou_inspection.visit %></td>
-                    <!-- <td><%= link_to 'D' %> -->
-                    
+  <div class = "row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+      <div class="panel-body">
+      <div class="panel-heading"><h2>Restaurant Inspections</h2></div>
+        <table class="table">
+          <th>Business Id</th>
+            <th>Inspection Score</th>
+            <th>Inspection Date</th>
+             <th>Inspection Type</th>
+                <tr><% @lou_inspections.each do |lou_inspection| %></tr>
+                  <td><%= lou_inspection.business_id %></td>
+                  <td><%= lou_inspection.score %></td>
+                  <td><%= lou_inspection.date %></td>
+                  <td><%= lou_inspection.visit %></td>
+                  <!-- <td><%= link_to 'D' %> -->
                   </td>
-                
-                <% end %>
-                
-              </table>
+                  <% end %>
+          </table>
+        </div>  
+      </div>
+    </div>
+    <div>
+      <%= search_form_for @q do |f| %>
+      <%= f.label :'Enter terms' %>
+      <%= f.search_field :business_id_or_score_or_date_or_visit_eq %>
 
-              <%= search_form_for @q do |f| %>
-            <%= f.label :'Enter terms' %>
-            <%= f.search_field :business_id_or_score_or_date_or_visit_eq %>
-
-            <%= f.submit "search" %>
-            <% end %>
-
-              <%= paginate @lou_inspections %> 
-
-              </div>
-          </div>
-        </div>
+      <%= f.submit "search" %>
+      <% end %>
+    </div>
+    
+      <div>
+      <%= paginate @lou_inspections %> 
+      </div>
+        
    
         
       

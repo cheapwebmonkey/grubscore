@@ -35,8 +35,10 @@
       <%= f.submit "search" %>
       <% end %>
     </div>
-
-    <div>
+    <div class= "col-lg-4">
+      <%= link_to "Add A Business", new_business_path %>
+    </div>
+    <div class= "col-lg-4">
       <%= paginate @businesses, :left => 1, :right => 3 %>   
     </div>
    
