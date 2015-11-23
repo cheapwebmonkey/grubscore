@@ -29,7 +29,7 @@
     </div>
     <div class= "col-lg-4">
       <%= search_form_for @q do |f| %>
-      <%= f.label :'Enter terms' %>
+      <%= f.label :'Enter query' %>
       <%= f.search_field :business_id_or_score_or_date_or_visit_eq %>
 
       <%= f.submit "search" %>
