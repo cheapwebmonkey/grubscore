@@ -4,15 +4,15 @@
    <!--Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Poiret+One|Fredericka+the+Great|Poppins:300,700,500' rel='stylesheet' type='text/css'>
     <title>GrubScore-Up your food game.</title>
-    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
     <!-- <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8"> -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
+    
 
      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -39,9 +39,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">Businesses</a></li>
-            <li ><a href="/lou_inspections">Inspections</a></li>
-            <li><a href="/lou_violations">Violations</a></li>
+            <li><a data-toggle="collapse" data-target=".navbar-collapse" href="/">Businesses</a></li>
+            <li ><a data-toggle="collapse" data-target=".navbar-collapse" href="/lou_inspections">Inspections</a></li>
+            <li><a data-toggle="collapse" data-target=".navbar-collapse" href="/lou_violations">Violations</a></li>
           </ul>
        </div>
      </div>
