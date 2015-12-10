@@ -20,3 +20,8 @@ node_modules/
 platforms/
 plugins/
 >>>>>>> 2712c4b15224a62f7a871f3576a0d3a5d3202d2a
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
