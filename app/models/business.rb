@@ -55,6 +55,10 @@ class Business < ActiveRecord::Base
   
   def score
     Business.all.select(:lou_inspection_score)  
+    @business.score = LouInspection.score
+      for business.score in 0 ... array.size
+        puts "array[#{businiess_score}] = #{array[business_score].inspect}"
+      end
   end
 
     def full_address
@@ -62,7 +66,7 @@ class Business < ActiveRecord::Base
     end
 
     def has_inspection_scores?
-     @business.score = LouInspection.score
+     
     end
     
 

@@ -38,7 +38,12 @@ class BusinessesController < ApplicationController
 
   def score
     @lou_inspections = lou_inspection.includes(:business)
-    
+    @lou_violations = LouViolation.score
+    if @lou_violations.score == Array
+      @businesses.score = LouViolation.array(@business)
+    else
+      @businesses = @businesses
+      end 
   end
 
  
